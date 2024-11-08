@@ -1,0 +1,35 @@
+@startuml
+!theme materia
+title Portabilidade de Crédito - Open Finance Brasil (OFB)
+"cliente" ->  "Instituição \nProponente" : Verifica disponibilidade de portabilidade de crédito
+"Instituição \nProponente" ->  "Instituição \nCredora" : Consulta permissions do consentimento fornecido pelo cliente
+"Instituição \nCredora" -> "Instituição \nProponente" : Retorna dados a respeito do consentimento dado pelo cliente
+"Instituição \nProponente" ->  "Instituição \nCredora" : Solicita número de contratos vinculado ao cliente
+"Instituição \nCredora" -> "Instituição \nProponente" : Contratos realizado pelo cliente
+"Instituição \nProponente" ->  "Instituição \nCredora" : Solicita detalhamento dos contratos \nOBS. Consulta em 3 endpoints distintos
+"Instituição \nCredora" -> "Instituição \nProponente" : Retorna os detalhamentos dos contratos solicitados
+"Instituição \nProponente" ->  "Instituição \nProponente" : Analise de risco e elaboração de proposta \npara portabilidade de crédito
+"Instituição \nProponente" ->  "Instituição \nCredora" : Confirma se contrato de empréstimo está elegível \npara solicitação de portabilidade de crédito
+"Instituição \nCredora" -> "Instituição \nProponente" : Retorna dados a respeito da elegibilidade do contrato \npara solicitação de portabilidade de crédito
+"Instituição \nProponente" -> "cliente"  : Retorna contratos elegíveis para portabilidade de crédito
+"cliente" ->  "Instituição \nProponente" : Seleciona contrato para verificar proposta de portabilidade de crédito
+"Instituição \nProponente" -> "cliente"  : Retorna proposta para portabilidade de crédito
+"cliente" ->  "Instituição \nProponente" : Solicita portabilidade de crédito
+"Instituição \nProponente" -> "cliente"  : Disponibiliza contrato para assinatura
+"cliente" ->  "Instituição \nProponente" : Confirma o aceite da portabilidade de crédito
+"Instituição \nProponente" -> "Instituição \nCredora"  : Solicita Portabilidade de crédito
+"Instituição \nCredora" -> "Instituição \nProponente"  : Confirma recebimento da portabilidade de crédito
+"Instituição \nCredora" -> "Instituição \nCredora"  : Analise do Pedido de Portabilidade e \nperiodo para contraproposta
+"Instituição \nCredora" -> "cliente"  : Envio da contraproposta
+"cliente" -> "Instituição \nCredora"  : Não aceito da contraproposta pelo canal digital
+"Instituição \nCredora" -> "Instituição \nProponente"  : Informa a proponente que ela pode prosseguir com a portabilidade de crédito
+"Instituição \nProponente" -> "Instituição \nCredora"  : Consulta saldo devedor atualizado para liquidação
+"Instituição \nCredora" -> "Instituição \nProponente"  : Retorna saldo atualizado para liquidação
+"Instituição \nProponente" -> "Instituição \nCredora"  : Consulta dados bancários para liquidação
+"Instituição \nCredora" -> "Instituição \nProponente"  : Retorna dados bancários para liquidação
+"Instituição \nProponente" -> "Instituição \nCredora"  : Informa a respeito da liquidação realizada via TED do contrato
+"Instituição \nCredora" -> "Instituição \nCredora"  : Analise a respeito do pagamento recebido pela quitação do contrato
+"Instituição \nCredora" -> "Instituição \nProponente"  : Confirma recebimento e fornece recibo de quitação do contrato
+"Instituição \nCredora" -> "OFB Estrutura"  : Reporta informações a respeito dos pedidos de portabilidade solicitados
+"Instituição \nProponente" -> "OFB Estrutura"  : Reporta informações a respeito dos pedidos de portabilidade solicitados
+@enduml
